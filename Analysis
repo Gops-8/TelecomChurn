@@ -1,0 +1,110 @@
+## Conclusion & Reccomendation 
+
+- After Data Preprocessing and Feature Enggineering we have build in total of 5 ML models 
+- Out of the 5 models 2 models are built on the original data for interpreatability 
+- We build and hypertuned models with scoring accuracy and Recall . Though our data is more sensitive (TP should be indentified) we   observed that keeping the scoring as accuracy gives better result on the unseen data . Most probably due train data have more synthesized data 
+  models with best recall and lower accuracy didnt perform well on real data 
+- So all our models are evaluated and hypertuned based on accuracy  
+  
+- I have mentioed the Details of the Models that we build below 
+ 
+
+### ```Decision Tree Model``` 
+
+- <b> Best Hyperparameters for the Decision Tree Model came out to be 
+    
+ *   'max_depth': 6
+ *   'min_samples_leaf': 50
+ *   'min_samples_split': 50 and 
+ *   'criterion': Gini 
+ 
+- <b> At these Hyperparameters 
+   
+   * Accuracy of Prediction Test Data : 88%
+   * Sensitivity Of Prediction Test Data : 73%
+    
+    
+
+
+![](https://i.ibb.co/2kyMxnR/DT.png)
+
+    
+    
+### ```Logistic Regression Model ``` 
+
+####  Without PCA 
+    
+- <b> Best Hyperparameters for the Logistic Regression Model came out to be 
+ *   Alpha : 5
+ *   Penalty : L2,Lasso 
+ 
+- <b> Top Coefficents as per LR model are 
+    
+ 
+    
+![](https://i.ibb.co/2kj4kHn/LR.png)
+
+    
+<b>Top 10 Identifiers   
+    
+    
+    Features              Coef Value         Desc 
+    total_rech_data_6    27.054781           Total Recharge in June
+    total_rech_data_7    22.103914           Total Recharge in July
+    total_rech_data_8    21.453605           Total Recharge in Aug
+    offnet_mou_8          5.805817           All kind of calls outside the operator in Aug
+    onnet_mou_8           5.067052           All kind of calls inside the operator in Aug   
+    monthly_3g_6         -5.024661           used 3G Service schemes with validity equivalent to a month in June 
+    sachet_3g_8          -7.438701           used 3G Service schemes with validity lesser to a month in Aug
+    sachet_3g_7          -8.010640           used 3G Service schemes with validity lesser to a month in July
+    sachet_3g_6          -8.899074           used 3G Service schemes with validity lesser to a month in June
+    sachet_2g_8         -18.042866           used 2G Service schemes with validity lesser to a month in Aug
+    sachet_2g_7         -18.245165           used 2G Service schemes with validity lesser to a month in July
+    sachet_2g_6         -22.718023           used 2G Service schemes with validity lesser to a month in June
+ 
+- <b> At these Hyperparameters 
+
+ 
+   * Accuracy of Prediction : 90.67 %
+   * Sensitivity Of Prediction : 65 %
+
+####  After Using PCA 
+    
+- <b> Best Hyperparameters for the Logistic Regression Model with came out to be 
+ *   Alpha : 0.4
+ *   Penalty : L2,Lasso 
+   
+  
+- <b> At these Hyperparameters 
+
+ 
+   * Accuracy of Prediction on Test Data : 82 %
+   * Sensitivity Of Prediction on Test Data  : 81 %
+    
+  
+  
+### ```Random Forest Ensemble ``` 
+
+- <b> Best Hyperparameters for the Random Forest Model came out to be 
+ *   'max_depth': 10
+ *   'n_estimatore':100 
+ 
+- <b> At these Hyperparameters 
+   
+   * Accuracy of Prediction on Test Data :  87
+   * Sensitivity Of Prediction on Test Data  : 71 
+ 
+  
+### ```Extreme Gradient Boost Classifier ``` 
+
+- <b> Best Hyperparameters for the Random Forest Model came out to be 
+		-	  'learning_rate': 0.2 
+        -      'subsample': 0.9
+        -      'max_depth': 8
+        -      'n_estimators': 300 
+
+- <b> At these Hyperparameters 
+   
+   * Accuracy of Prediction on Test Data : 85%
+   * Sensitivity Of Prediction on Test Data: 76%
+
